@@ -1,0 +1,166 @@
+// src/components/Navbar.jsx
+import React, { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
+import {
+  FiShoppingCart,
+  FiUserPlus,
+  FiLogIn,
+  FiMenu,
+  FiX,
+} from "react-icons/fi";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
+import { Typewriter } from "react-simple-typewriter";
+
+const Navbar = () => {
+  const cartState = useSelector((state) => state.handleCart);
+  const [loading, setLoading] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 800);
+    return () => clearTimeout(timer);
+  }, []);
+
+  return (
+    <nav className="bg-gradient-to-r from-purple-900 via-pink-600 to-cyan-600 shadow-2xl sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between">
+        {/* Left: Logo + Typewriter */}
+        <div className="flex items-center gap-3 flex-shrink-0 w-64">
+          <img
+            src="/assets/logo.png"
+            alt="Logo"
+            className="h-14 w-14 rounded-full shadow-xl border-2 border-white"
+          />
+          <h1 className="text-lg md:text-2xl font-extrabold tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-pink-300 to-white drop-shadow-lg whitespace-nowrap">
+            <Typewriter
+              words={["υᴢнαναη.ᴄᴏᴍ", "ꜰʀᴇꜱʜɴᴇꜱꜱ ᴅᴇʟɪᴠᴇʀᴇᴅ"]}
+              loop={true}
+              cursor
+              cursorStyle="|"
+              typeSpeed={70}
+              deleteSpeed={50}
+              delaySpeed={1500}
+            />
+          </h1>
+        </div>
+
+        {/* Center: Nav links (hidden on mobile) */}
+        <div className="hidden md:flex gap-10 text-white font-semibold text-lg mx-auto">
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              `hover:text-yellow-300 transition-colors duration-300 ₹{
+                isActive ? "text-yellow-300" : ""
+              }`
+            }
+          >
+            Home
+          </NavLink>
+          <NavLink
+            to="/product"
+            className={({ isActive }) =>
+              `hover:text-yellow-300 transition-colors duration-300 ₹{
+                isActive ? "text-yellow-300" : ""
+              }`
+            }
+          >
+            Products
+          </NavLink>
+          <NavLink
+            to="/about"
+            className={({ isActive }) =>
+              `hover:text-yellow-300 transition-colors duration-300 ₹{
+                isActive ? "text-yellow-300" : ""
+              }`
+            }
+          >
+            About
+          </NavLink>
+          <NavLink
+            to="/contact"
+            className={({ isActive }) =>
+              `hover:text-yellow-300 transition-colors duration-300 ₹{
+                isActive ? "text-yellow-300" : ""
+              }`
+            }
+          >
+            Contact
+          </NavLink>
+        </div>
+
+        {/* Right: Buttons */}
+        <div className="flex items-center space-x-3 mt-3 md:mt-0">
+          <NavLink
+            to="/login"
+            className="flex items-center px-5 py-2 border border-white rounded-lg text-white hover:bg-white hover:text-purple-900 transition-all duration-300 shadow-md"
+          >
+            <FiLogIn className="mr-2" /> Login
+          </NavLink>
+          <NavLink
+            to="/register"
+            className="flex items-center px-5 py-2 border border-white rounded-lg text-white hover:bg-white hover:text-purple-900 transition-all duration-300 shadow-md"
+          >
+            <FiUserPlus className="mr-2" /> Register
+          </NavLink>
+          <NavLink
+            to="/cart"
+            className="flex items-center px-5 py-2 border border-white rounded-lg text-white hover:bg-white hover:text-purple-900 transition-all duration-300 shadow-md"
+          >
+            <FiShoppingCart className="mr-2" />
+            {loading ? (
+              <Skeleton width={40} height={20} baseColor="#cbd5e1" />
+            ) : (
+              <>Cart ({cartState.length})</>
+            )}
+          </NavLink>
+
+          {/* Mobile menu toggle */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden p-2 text-white rounded-lg hover:bg-purple-800 focus:outline-none ml-2"
+          >
+            {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile nav links */}
+      {isOpen && (
+        <div className="flex flex-col md:hidden space-y-2 text-white font-semibold px-6 pb-4 bg-gradient-to-r from-purple-900 via-pink-600 to-cyan-600 w-full shadow-inner">
+          <NavLink
+            to="/"
+            className="hover:text-yellow-300 transition-colors duration-300"
+            onClick={() => setIsOpen(false)}
+          >
+            Home
+          </NavLink>
+          <NavLink
+            to="/product"
+            className="hover:text-yellow-300 transition-colors duration-300"
+            onClick={() => setIsOpen(false)}
+          >
+            Products
+          </NavLink>
+          <NavLink
+            to="/about"
+            className="hover:text-yellow-300 transition-colors duration-300"
+            onClick={() => setIsOpen(false)}
+          >
+            About
+          </NavLink>
+          <NavLink
+            to="/contact"
+            className="hover:text-yellow-300 transition-colors duration-300"
+            onClick={() => setIsOpen(false)}
+          >
+            Contact
+          </NavLink>
+        </div>
+      )}
+    </nav>
+  );
+};
+
+export default Navbar;
