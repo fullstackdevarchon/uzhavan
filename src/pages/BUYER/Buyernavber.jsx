@@ -40,16 +40,16 @@ const BuyerNavbar = () => {
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
       {/* Navbar */}
-      <nav className="bg-gradient-to-r from-purple-800 via-pink-600 to-cyan-500 shadow-2xl sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between">
+      <nav className="bg-gradient-to-r from-purple-800 via-pink-600 to-cyan-500 shadow-2xl fixed top-0 left-0 w-full z-50">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           {/* Left: Logo + Typewriter */}
-          <div className="flex items-center gap-3 w-full md:w-auto mb-3 md:mb-0">
+          <div className="flex items-center gap-3 flex-shrink-0">
             <img
-              src="/assets/logo.png" // replace with your logo path
+              src="/assets/logo.png"
               alt="Logo"
-              className="h-14 w-14 rounded-full shadow-xl border-2 border-white object-cover"
+              className="h-12 w-12 rounded-full shadow-xl border-2 border-white object-cover"
             />
-            <h1 className="text-xl md:text-3xl font-extrabold tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-pink-300 to-white drop-shadow-lg whitespace-nowrap">
+            <h1 className="text-xl md:text-2xl font-extrabold tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-pink-300 to-white drop-shadow-lg whitespace-nowrap">
               <Typewriter
                 words={["υᴢнαναη.ᴄᴏᴍ", "ʙᴜʏᴇʀᴅᴀꜱʜʙᴏᴀʀᴅ"]}
                 loop={true}
@@ -105,12 +105,12 @@ const BuyerNavbar = () => {
 
         {/* Mobile Nav */}
         {isOpen && (
-          <div className="md:hidden bg-gradient-to-r from-purple-800 via-pink-600 to-cyan-500 shadow-inner px-6 py-4 space-y-4 rounded-b-2xl">
+          <div className="md:hidden bg-gradient-to-r from-purple-800 via-pink-600 to-cyan-500 shadow-inner px-6 py-2 rounded-b-2xl divide-y divide-white/30">
             <NavLink
               to="products"
               onClick={() => setIsOpen(false)}
               className={({ isActive }) =>
-                `block transition-colors duration-300 ${
+                `block py-3 ${
                   isActive
                     ? "text-yellow-400 font-semibold"
                     : "text-white hover:text-yellow-300"
@@ -123,7 +123,7 @@ const BuyerNavbar = () => {
               to="orders"
               onClick={() => setIsOpen(false)}
               className={({ isActive }) =>
-                `block transition-colors duration-300 ${
+                `block py-3 ${
                   isActive
                     ? "text-yellow-400 font-semibold"
                     : "text-white hover:text-yellow-300"
@@ -136,7 +136,7 @@ const BuyerNavbar = () => {
               to="cart"
               onClick={() => setIsOpen(false)}
               className={({ isActive }) =>
-                `block transition-colors duration-300 ${
+                `block py-3 ${
                   isActive
                     ? "text-yellow-400 font-semibold"
                     : "text-white hover:text-yellow-300"
@@ -155,7 +155,7 @@ const BuyerNavbar = () => {
                 handleLogout();
                 setIsOpen(false);
               }}
-              className="flex items-center gap-2 text-red-400 hover:text-red-200 font-semibold transition-colors focus:outline-none"
+              className="block py-3 w-full text-left flex items-center gap-2 text-red-400 hover:text-red-200 font-semibold transition-colors focus:outline-none"
             >
               <FaSignOutAlt /> Logout
             </button>
@@ -164,7 +164,7 @@ const BuyerNavbar = () => {
       </nav>
 
       {/* Content */}
-      <main className="flex-1 p-6 bg-gray-50">
+      <main className="flex-1 p-6 bg-gray-50 mt-20">
         <Outlet /> {/* Nested routes render here */}
       </main>
     </div>

@@ -54,7 +54,7 @@ const Stepper = ({ currentStep, cancelled }) => {
             <div key={label} className="flex-1 flex items-center">
               <div
                 className={`flex items-center justify-center w-8 h-8 rounded-full border 
-                ₹{
+                ${
                   active
                     ? "bg-indigo-600 border-indigo-600 text-white"
                     : "bg-gray-100 border-gray-300 text-gray-500"
@@ -66,7 +66,7 @@ const Stepper = ({ currentStep, cancelled }) => {
               {idx < STEPS.length - 1 && (
                 <div
                   className={`h-1 flex-1 mx-2 rounded 
-                  ₹{stepNum < currentStep ? "bg-indigo-600" : "bg-gray-200"}`}
+                  ${stepNum < currentStep ? "bg-indigo-600" : "bg-gray-200"}`}
                 />
               )}
             </div>
@@ -98,7 +98,7 @@ const OrderCard = ({
     <div className="bg-white rounded-2xl shadow-sm border border-gray-200 hover:shadow-md transition">
       <div className="p-5 grid gap-5 md:grid-cols-[auto_1fr_auto_auto] items-center">
         {/* Thumbnail */}
-        <div className="flex items-center">
+        <div className="flex items-center justify-center md:justify-start">
           <img
             src={order.image}
             onError={(e) => {
@@ -132,7 +132,7 @@ const OrderCard = ({
         {/* Status badge */}
         <div className="flex items-center justify-start md:justify-center">
           <span
-            className={`inline-flex items-center px-3 py-1 rounded-full border text-sm ₹{meta.color}`}
+            className={`inline-flex items-center px-3 py-1 rounded-full border text-sm ${meta.color}`}
           >
             {meta.icon}
             {order.status}
@@ -140,14 +140,14 @@ const OrderCard = ({
         </div>
 
         {/* Actions */}
-        <div className="flex items-center justify-end gap-3">
+        <div className="flex flex-col md:flex-row items-stretch md:items-center justify-end gap-3">
           <button
             onClick={toggleExpand}
-            className="px-3 py-2 text-sm border rounded-lg hover:bg-gray-50 transition flex items-center"
+            className="px-3 py-2 text-sm border rounded-lg hover:bg-gray-100 transition flex items-center justify-center"
           >
             Track Order
             <FaChevronDown
-              className={`ml-2 transition-transform ₹{
+              className={`ml-2 transition-transform ${
                 isExpanded ? "rotate-180" : ""
               }`}
             />
@@ -156,7 +156,7 @@ const OrderCard = ({
           {order.status === "Processing" && (
             <button
               onClick={() => onCancel(order.id)}
-              className="px-3 py-2 text-sm border rounded-lg hover:bg-gray-50 transition"
+              className="px-3 py-2 text-sm border rounded-lg hover:bg-gray-100 transition"
             >
               Cancel Order
             </button>
@@ -166,28 +166,21 @@ const OrderCard = ({
             <>
               <button
                 onClick={() => onReturn(order.id)}
-                className="px-3 py-2 text-sm border rounded-lg hover:bg-gray-50 transition flex items-center"
+                className="px-3 py-2 text-sm border rounded-lg hover:bg-gray-100 transition flex items-center justify-center"
               >
                 <FaUndo className="mr-2" />
                 Return
               </button>
               <Link
-                to={`/buyer-dashboard/product/₹{order.productId}`}
+                to={`/buyer-dashboard/product/${order.productId}`}
                 onClick={() => onBuyAgain(order.id)}
-                className="px-3 py-2 text-sm bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition flex items-center"
+                className="px-3 py-2 text-sm bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition flex items-center justify-center"
               >
                 <FaRedo className="mr-2" />
                 Buy Again
               </Link>
             </>
           )}
-
-          {/* <Link
-            to={`/orders/₹{order.id}`}
-            className="text-indigo-600 hover:text-indigo-800 font-semibold text-sm"
-          >
-            View Details
-          </Link> */}
         </div>
       </div>
 
@@ -207,9 +200,7 @@ const OrderCard = ({
                     • Shipped via {order.courier || "BlueDart"} (AWB:{" "}
                     {order.awb || "—"})
                   </div>
-                  <div>
-                    • Delivered on {order.deliveredOn || order.date}
-                  </div>
+                  <div>• Delivered on {order.deliveredOn || order.date}</div>
                 </>
               )}
               {order.status === "Processing" && (
@@ -247,7 +238,7 @@ const OrderList = () => {
       status: idx === 0 ? "Delivered" : idx === 1 ? "Processing" : "Cancelled",
       deliveredOn: idx === 0 ? "2025-08-27" : undefined,
       courier: "Delhivery",
-      awb: `DLV₹{1000 + idx}`,
+      awb: `DLV${1000 + idx}`,
       address: "123 Main Street, City",
       cancelReason: idx === 2 ? "Payment not captured" : undefined,
     }));
@@ -280,7 +271,7 @@ const OrderList = () => {
   };
 
   const handleReturn = (id) => {
-    alert(`Return initiated for order #₹{id}`);
+    alert(`Return initiated for order #${id}`);
   };
 
   const handleBuyAgain = (id) => {
@@ -308,10 +299,10 @@ const OrderList = () => {
                 <button
                   key={f}
                   onClick={() => setFilter(f)}
-                  className={`px-4 py-2 rounded-full border text-sm transition ₹{
+                  className={`px-4 py-2 rounded-full border text-sm transition ${
                     active
                       ? "bg-indigo-600 text-white border-indigo-600"
-                      : "bg-white text-gray-800 border-gray-300 hover:bg-gray-50"
+                      : "bg-white text-gray-800 border-gray-300 hover:bg-gray-100"
                   }`}
                 >
                   {f}

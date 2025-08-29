@@ -161,7 +161,7 @@ const Checkout = () => {
               <hr className="my-6" />
 
               {/* Payment */}
-              <h4 className="text-2xl font-bold mb-4 text-gray-800">Payment</h4>
+              <h4 className="text-2xl font-bold mb-4 text-gray-800">Online Payment</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block mb-1 font-medium text-gray-700">

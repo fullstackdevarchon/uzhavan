@@ -24,7 +24,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="bg-gradient-to-r from-purple-900 via-pink-600 to-cyan-600 shadow-2xl sticky top-0 z-50">
+    <nav className="bg-gradient-to-r from-purple-900 via-pink-600 to-cyan-600 shadow-2xl fixed top-0 left-0 w-full z-50">
       <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between">
         {/* Left: Logo + Typewriter */}
         <div className="flex items-center gap-3 flex-shrink-0 w-64">
@@ -46,13 +46,13 @@ const Navbar = () => {
           </h1>
         </div>
 
-        {/* Center: Nav links (hidden on mobile) */}
+        {/* Center: Nav links (Desktop only) */}
         <div className="hidden md:flex gap-10 text-white font-semibold text-lg mx-auto">
           <NavLink
             to="/"
             className={({ isActive }) =>
-              `hover:text-yellow-300 transition-colors duration-300 ₹{
-                isActive ? "text-yellow-300" : ""
+              `hover:text-yellow-300 transition-colors duration-300 ${
+                isActive ? "text-yellow-300 underline underline-offset-8" : ""
               }`
             }
           >
@@ -61,8 +61,8 @@ const Navbar = () => {
           <NavLink
             to="/product"
             className={({ isActive }) =>
-              `hover:text-yellow-300 transition-colors duration-300 ₹{
-                isActive ? "text-yellow-300" : ""
+              `hover:text-yellow-300 transition-colors duration-300 ${
+                isActive ? "text-yellow-300 underline underline-offset-8" : ""
               }`
             }
           >
@@ -71,8 +71,8 @@ const Navbar = () => {
           <NavLink
             to="/about"
             className={({ isActive }) =>
-              `hover:text-yellow-300 transition-colors duration-300 ₹{
-                isActive ? "text-yellow-300" : ""
+              `hover:text-yellow-300 transition-colors duration-300 ${
+                isActive ? "text-yellow-300 underline underline-offset-8" : ""
               }`
             }
           >
@@ -81,8 +81,8 @@ const Navbar = () => {
           <NavLink
             to="/contact"
             className={({ isActive }) =>
-              `hover:text-yellow-300 transition-colors duration-300 ₹{
-                isActive ? "text-yellow-300" : ""
+              `hover:text-yellow-300 transition-colors duration-300 ${
+                isActive ? "text-yellow-300 underline underline-offset-8" : ""
               }`
             }
           >
@@ -128,31 +128,31 @@ const Navbar = () => {
 
       {/* Mobile nav links */}
       {isOpen && (
-        <div className="flex flex-col md:hidden space-y-2 text-white font-semibold px-6 pb-4 bg-gradient-to-r from-purple-900 via-pink-600 to-cyan-600 w-full shadow-inner">
+        <div className="flex flex-col md:hidden text-white font-semibold px-6 pb-4 bg-gradient-to-r from-purple-900 via-pink-600 to-cyan-600 w-full shadow-inner transition-all duration-500 ease-in-out">
           <NavLink
             to="/"
-            className="hover:text-yellow-300 transition-colors duration-300"
+            className="py-3 border-b border-white/30 hover:text-yellow-300"
             onClick={() => setIsOpen(false)}
           >
             Home
           </NavLink>
           <NavLink
             to="/product"
-            className="hover:text-yellow-300 transition-colors duration-300"
+            className="py-3 border-b border-white/30 hover:text-yellow-300"
             onClick={() => setIsOpen(false)}
           >
             Products
           </NavLink>
           <NavLink
             to="/about"
-            className="hover:text-yellow-300 transition-colors duration-300"
+            className="py-3 border-b border-white/30 hover:text-yellow-300"
             onClick={() => setIsOpen(false)}
           >
             About
           </NavLink>
           <NavLink
             to="/contact"
-            className="hover:text-yellow-300 transition-colors duration-300"
+            className="py-3 border-b border-white/30 hover:text-yellow-300"
             onClick={() => setIsOpen(false)}
           >
             Contact

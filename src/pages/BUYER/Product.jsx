@@ -10,7 +10,7 @@ import toast from "react-hot-toast";
 import productsData from "../../data/products.json";
 
 const Product = () => {
-  const { id } = useParams();
+  const { id } = useParams(); // 👈 Route param (e.g., "2")
   const [product, setProduct] = useState({});
   const [similarProducts, setSimilarProducts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -21,17 +21,23 @@ const Product = () => {
   const addProduct = (product) => {
     dispatch(addCart(product));
     toast.success("Added to cart!");
+    console.log("✅ Added to cart:", product);
   };
 
   useEffect(() => {
+    console.log("🔍 useParams ID:", id);
+
     setLoading(true);
     setLoading2(true);
 
-    // Simulate async load
     setTimeout(() => {
+      // ✅ Ensure ID comparison works as string
       const foundProduct = productsData.find(
         (item) => String(item.id) === String(id)
       );
+
+      console.log("📦 Found Product:", foundProduct);
+
       setProduct(foundProduct || {});
       setLoading(false);
 
@@ -39,14 +45,17 @@ const Product = () => {
         const related = productsData.filter(
           (item) =>
             item.category.toLowerCase() ===
-              foundProduct.category.toLowerCase() && item.id !== foundProduct.id
+              foundProduct.category.toLowerCase() &&
+            item.id !== foundProduct.id
         );
+        console.log("✨ Similar Products:", related);
         setSimilarProducts(related);
       }
       setLoading2(false);
     }, 400);
   }, [id]);
 
+  // 🔹 Loading skeleton for main product
   const Loading = () => (
     <div className="flex flex-col md:flex-row gap-8 animate-pulse mt-12">
       <div className="w-full md:w-1/2 h-96 bg-gray-200 rounded-lg" />
@@ -60,6 +69,7 @@ const Product = () => {
     </div>
   );
 
+  // 🔹 Main product display
   const ShowProduct = () => (
     <div className="flex flex-col md:flex-row gap-12 mt-12">
       {/* Product Image */}
@@ -111,6 +121,7 @@ const Product = () => {
     </div>
   );
 
+  // 🔹 Loading skeleton for similar products
   const Loading2 = () => (
     <div className="flex gap-6">
       {Array.from({ length: 4 }).map((_, idx) => (
@@ -122,6 +133,7 @@ const Product = () => {
     </div>
   );
 
+  // 🔹 Similar products display
   const ShowSimilarProduct = () => (
     <div className="flex gap-6 py-6">
       {similarProducts.map((item) => (
@@ -133,7 +145,7 @@ const Product = () => {
           <div className="flex justify-center bg-gray-50 p-4">
             <div className="w-40 h-40 flex items-center justify-center overflow-hidden rounded-md">
               <img
-                src={item.image}
+                src={item.image || "/images/placeholder.png"}
                 alt={item.title || "Similar product"}
                 className="w-full h-full object-cover"
                 loading="lazy"
@@ -150,8 +162,9 @@ const Product = () => {
               ₹ {item.price}
             </p>
             <div className="flex flex-col gap-2">
+              {/* ✅ Correct route param */}
               <Link
-                to={`/buyer-dashboard/product/₹{item.id}`}
+                to={`/buyer-dashboard/product/${item.id}`}
                 className="px-4 py-2 text-center bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition"
               >
                 <FaCreditCard className="inline mr-2" /> Buy Now
@@ -174,7 +187,7 @@ const Product = () => {
       {loading ? <Loading /> : <ShowProduct />}
       <div className="mt-16">
         <h2 className="text-2xl font-bold mb-6">You may also like</h2>
-        <Marquee pauseOnHover={true} pauseOnClick={true} speed={50}>
+        <Marquee pauseOnHover pauseOnClick speed={50}>
           {loading2 ? <Loading2 /> : <ShowSimilarProduct />}
         </Marquee>
       </div>

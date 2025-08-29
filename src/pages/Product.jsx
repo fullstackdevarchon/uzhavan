@@ -35,6 +35,7 @@ const Product = () => {
       const foundProduct = productsData.find(
         (item) => String(item.id) === String(id)
       );
+
       setProduct(foundProduct || {});
       setLoading(false);
 
@@ -50,6 +51,7 @@ const Product = () => {
     }, 400);
   }, [id]);
 
+  // 🔄 Skeleton Loader for Main Product
   const Loading = () => (
     <div className="flex flex-col md:flex-row gap-8 animate-pulse mt-12">
       <div className="w-full md:w-1/2 h-96 bg-gray-200 rounded-lg" />
@@ -63,6 +65,7 @@ const Product = () => {
     </div>
   );
 
+  // ✅ Show Main Product
   const ShowProduct = () => (
     <div className="flex flex-col md:flex-row gap-12 mt-12">
       {/* Product Image */}
@@ -114,6 +117,7 @@ const Product = () => {
     </div>
   );
 
+  // 🔄 Skeleton Loader for Similar Products
   const Loading2 = () => (
     <div className="flex gap-6">
       {Array.from({ length: 4 }).map((_, idx) => (
@@ -125,6 +129,7 @@ const Product = () => {
     </div>
   );
 
+  // ✅ Show Similar Products
   const ShowSimilarProduct = () => (
     <div className="flex gap-6 py-6">
       {similarProducts.map((item) => (
@@ -153,8 +158,9 @@ const Product = () => {
               ₹ {item.price}
             </p>
             <div className="flex flex-col gap-2">
+              {/* ✅ Correct Dynamic Link (buyer-dashboard path) */}
               <Link
-                to={`/product/₹{item.id}`}
+                to={`/buyer-dashboard/product/${item.id}`}
                 className="px-4 py-2 text-center bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition"
               >
                 <FaCreditCard className="inline mr-2" /> Buy Now

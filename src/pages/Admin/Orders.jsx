@@ -33,10 +33,18 @@ const Orders = () => {
     return matchesSearch && matchesFilter;
   });
 
+  // 🎨 Status Color Mapping
+  const statusClasses = {
+    Pending: "bg-yellow-100 text-yellow-800 border-yellow-300",
+    Shipped: "bg-blue-100 text-blue-800 border-blue-300",
+    Delivered: "bg-green-100 text-green-800 border-green-300",
+    Cancelled: "bg-red-100 text-red-800 border-red-300",
+  };
+
   return (
-    <div className="p-6 md:p-10 max-w-7xl mx-auto bg-gray-50 min-h-screen">
+    <div className="p-6 md:p-10 max-w-7xl mx-auto bg-gray-50 min-h-screen font-sans">
       {/* Page Title */}
-      <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 flex items-center gap-3">
+      <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-8 flex items-center gap-3 tracking-wide">
         <FaClipboardList className="text-green-600" /> Order Management
       </h2>
 
@@ -50,7 +58,7 @@ const Orders = () => {
             placeholder="Search customer or product..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 rounded-xl border border-gray-300 shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none"
+            className="w-full pl-10 pr-4 py-2 rounded-xl border border-gray-300 shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none text-sm md:text-base"
           />
         </div>
 
@@ -60,7 +68,10 @@ const Orders = () => {
           <select
             value={filter}
             onChange={(e) => setFilter(e.target.value)}
-            className="px-4 py-2 rounded-xl border border-gray-300 shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none"
+            className="px-5 py-2 rounded-xl border border-gray-300 bg-white shadow-md 
+                       focus:ring-2 focus:ring-green-500 focus:border-green-500 focus:outline-none 
+                       text-sm md:text-base font-medium cursor-pointer transition-all duration-200
+                       hover:shadow-lg hover:border-green-400"
           >
             <option value="All">All</option>
             <option value="Pending">Pending</option>
@@ -77,23 +88,13 @@ const Orders = () => {
           filteredOrders.map((order) => (
             <div
               key={order.id}
-              className="bg-white rounded-2xl shadow-md border border-gray-200 p-6 flex flex-col gap-4 hover:shadow-2xl transition transform hover:-translate-y-1"
+              className={`bg-white rounded-2xl shadow-md border p-6 flex flex-col gap-4 hover:shadow-2xl transition transform hover:-translate-y-1 ${statusClasses[order.status]}`}
             >
               {/* Header */}
               <div className="flex justify-between items-center">
-                <span className="text-sm font-semibold text-gray-500">
-                  Order #{order.id}
-                </span>
+                <span className="text-sm font-semibold">Order #{order.id}</span>
                 <span
-                  className={`px-3 py-1 rounded-full text-xs font-semibold shadow-sm ₹{
-                    order.status === "Pending"
-                      ? "bg-yellow-100 text-yellow-700"
-                      : order.status === "Shipped"
-                      ? "bg-blue-100 text-blue-700"
-                      : order.status === "Delivered"
-                      ? "bg-green-100 text-green-700"
-                      : "bg-red-100 text-red-700"
-                  }`}
+                  className={`px-3 py-1 rounded-full text-xs font-semibold shadow-sm ${statusClasses[order.status]}`}
                 >
                   {order.status}
                 </span>
@@ -101,28 +102,26 @@ const Orders = () => {
 
               {/* Customer */}
               <div className="flex items-center gap-3">
-                <FaUser className="text-green-500 text-lg" />
-                <span className="font-semibold text-gray-800">
-                  {order.customer}
-                </span>
+                <FaUser className="text-green-700 text-lg" />
+                <span className="font-semibold text-base">{order.customer}</span>
               </div>
 
               {/* Product */}
               <div className="flex items-center gap-3">
-                <FaTruck className="text-blue-500 text-lg" />
-                <span className="text-gray-700">{order.product}</span>
+                <FaTruck className="text-blue-700 text-lg" />
+                <span className="text-sm md:text-base">{order.product}</span>
               </div>
             </div>
           ))
         ) : (
-          <p className="col-span-full text-center text-gray-500 italic py-10">
+          <p className="col-span-full text-center text-gray-500 italic py-10 text-lg">
             No orders found
           </p>
         )}
       </div>
 
       {/* Footer Summary */}
-      <div className="mt-8 p-4 bg-white rounded-xl shadow flex justify-between items-center text-sm text-gray-700">
+      <div className="mt-8 p-4 bg-white rounded-xl shadow flex justify-between items-center text-sm md:text-base text-gray-700 font-medium">
         <span>Total Orders: {filteredOrders.length}</span>
         <span className="font-semibold">
           Pending / Cancelled:{" "}

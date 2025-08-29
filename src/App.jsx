@@ -29,11 +29,11 @@ import CheckStatus from "./pages/Seller/CheckStatus";
 
 // Admin Dashboard + Navbar
 import AdminNavbar from "./pages/Admin/AdminNavbar";
-import ProductListAdmin from "./pages/Admin/ProductList"; // 📌 Product List for admin
-import SellerRequests from "./pages/Admin/SellerRequests"; // 📌 Seller product requests
-import Analytics from "./pages/Admin/Analytics"; // 📌 Highest selling & not selling
-import Inventory from "./pages/Admin/Inventory"; // 📌 Inventory & Stock Alerts
-import Orders from "./pages/Admin/Orders"; // 📌 Order Management
+import ProductListAdmin from "./pages/Admin/ProductList"; 
+import SellerRequests from "./pages/Admin/SellerRequests"; 
+import Analytics from "./pages/Admin/Analytics"; 
+import Inventory from "./pages/Admin/Inventory"; 
+import Orders from "./pages/Admin/Orders"; 
 
 // Utilities
 import ScrollToTop from "./components/ScrollToTop";
@@ -59,7 +59,7 @@ function App() {
 
         {/* Buyer Dashboard with Nested Routes */}
         <Route path="/buyer-dashboard" element={<BuyerNavbar />}>
-          <Route index element={<ProductList />} /> {/* Default */}
+          <Route index element={<ProductList />} />
           <Route path="products" element={<ProductList />} />
           <Route path="product/:id" element={<BuyerProduct />} />
           <Route path="orders" element={<OrderList />} />
@@ -69,14 +69,14 @@ function App() {
 
         {/* Seller Dashboard with Nested Routes */}
         <Route path="/seller-dashboard" element={<SellerNavbar />}>
-          <Route index element={<AddProduct />} /> {/* Default page */}
+          <Route index element={<AddProduct />} />
           <Route path="add-product" element={<AddProduct />} />
           <Route path="check-status" element={<CheckStatus />} />
         </Route>
 
         {/* Admin Dashboard with Nested Routes */}
         <Route path="/admin-dashboard" element={<AdminNavbar />}>
-          <Route index element={<ProductListAdmin />} /> {/* Default page */}
+          <Route index element={<ProductListAdmin />} />
           <Route path="product-list" element={<ProductListAdmin />} />
           <Route path="seller-requests" element={<SellerRequests />} />
           <Route path="analytics" element={<Analytics />} />
@@ -86,7 +86,6 @@ function App() {
 
         {/* Error Handling */}
         <Route path="*" element={<PageNotFound />} />
-        <Route path="/product/*" element={<PageNotFound />} />
       </Routes>
 
       {/* Global Toast Notifications */}

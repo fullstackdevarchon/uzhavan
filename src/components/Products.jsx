@@ -120,7 +120,7 @@ const ProductList = () => {
             {/* Hover icons */}
             <div className="absolute top-2 right-2 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
               <Link
-                to={`/product/₹{product.id}`}
+                to={`/buyer-dashboard/product/${product.id}`}  // ✅ fixed link
                 className="p-2 bg-gray-800 text-white rounded-full hover:bg-gray-900 shadow-lg flex items-center justify-center"
               >
                 <FaCreditCard />

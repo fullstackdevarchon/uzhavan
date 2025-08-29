@@ -23,8 +23,8 @@ const AdminNavbar = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      {/* Top Navbar */}
-      <nav className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 shadow-lg px-6 py-4 flex items-center justify-between sticky top-0 z-50">
+      {/* Fixed Top Navbar */}
+      <nav className="fixed top-0 left-0 w-full bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 shadow-lg px-6 py-4 flex items-center justify-between z-50">
         {/* Logo + Title */}
         <div className="flex items-center gap-3">
           <img
@@ -104,41 +104,41 @@ const AdminNavbar = () => {
         </button>
       </nav>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Drawer */}
       {menuOpen && (
-        <div className="md:hidden bg-gradient-to-b from-blue-600 via-indigo-600 to-purple-600 shadow-lg flex flex-col px-6 py-4 gap-4 text-white font-medium text-lg">
+        <div className="fixed top-[72px] left-0 w-full bg-gradient-to-b from-blue-600 via-indigo-600 to-purple-600 shadow-lg flex flex-col px-6 py-4 gap-4 text-white font-medium text-lg z-40">
           <Link
             to="/admin-dashboard/product-list"
             onClick={() => setMenuOpen(false)}
-            className="flex items-center gap-2 hover:text-blue-200 transition"
+            className="flex items-center gap-2 border-b border-white/40 pb-2"
           >
             <FaBoxOpen /> Product List
           </Link>
           <Link
             to="/admin-dashboard/seller-requests"
             onClick={() => setMenuOpen(false)}
-            className="flex items-center gap-2 hover:text-blue-200 transition"
+            className="flex items-center gap-2 border-b border-white/40 pb-2"
           >
             <FaClipboardList /> Seller Requests
           </Link>
           <Link
             to="/admin-dashboard/analytics"
             onClick={() => setMenuOpen(false)}
-            className="flex items-center gap-2 hover:text-blue-200 transition"
+            className="flex items-center gap-2 border-b border-white/40 pb-2"
           >
             <FaChartLine /> Analytics
           </Link>
           <Link
             to="/admin-dashboard/inventory"
             onClick={() => setMenuOpen(false)}
-            className="flex items-center gap-2 hover:text-blue-200 transition"
+            className="flex items-center gap-2 border-b border-white/40 pb-2"
           >
             <FaWarehouse /> Inventory
           </Link>
           <Link
             to="/admin-dashboard/orders"
             onClick={() => setMenuOpen(false)}
-            className="flex items-center gap-2 hover:text-blue-200 transition"
+            className="flex items-center gap-2 border-b border-white/40 pb-2"
           >
             <FaTruck /> Orders
           </Link>
@@ -147,15 +147,15 @@ const AdminNavbar = () => {
               setMenuOpen(false);
               handleLogout();
             }}
-            className="flex items-center gap-2 hover:text-red-300 transition"
+            className="flex items-center gap-2 text-red-200 border-b border-white/40 pb-2"
           >
             <FaSignOutAlt /> Logout
           </button>
         </div>
       )}
 
-      {/* Content Area */}
-      <main className="flex-1 p-6 bg-gray-50">
+      {/* Content Area with top padding (because navbar is fixed) */}
+      <main className="flex-1 p-6 bg-gray-50 mt-[88px]">
         <Outlet />
       </main>
     </div>

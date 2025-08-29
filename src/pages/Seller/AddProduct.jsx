@@ -26,7 +26,6 @@ function AddProduct() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // 🔧 Replace with API call
     console.log("New Product:", form);
     toast.success("Product added successfully!");
     setForm({ name: "", price: "", description: "", image: null });
@@ -34,14 +33,14 @@ function AddProduct() {
   };
 
   return (
-    <div className="p-6 max-w-5xl mx-auto">
-      <h2 className="text-2xl font-semibold mb-6 text-gray-800">
+    <div className="p-4 sm:p-6 max-w-5xl mx-auto">
+      <h2 className="text-xl sm:text-2xl font-semibold mb-6 text-gray-800 text-center sm:text-left">
         Add New Product
       </h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
         {/* Product Form */}
-        <div className="bg-white shadow rounded-lg p-6">
+        <div className="bg-white shadow rounded-lg p-4 sm:p-6">
           <form onSubmit={handleSubmit} className="space-y-4">
             <input
               type="text"
@@ -50,7 +49,7 @@ function AddProduct() {
               onChange={handleChange}
               placeholder="Product Name"
               required
-              className="w-full border p-3 rounded focus:ring-2 focus:ring-blue-500"
+              className="w-full border p-2 sm:p-3 rounded focus:ring-2 focus:ring-blue-500 text-sm sm:text-base"
             />
 
             <input
@@ -60,7 +59,7 @@ function AddProduct() {
               onChange={handleChange}
               placeholder="Price (₹)"
               required
-              className="w-full border p-3 rounded focus:ring-2 focus:ring-blue-500"
+              className="w-full border p-2 sm:p-3 rounded focus:ring-2 focus:ring-blue-500 text-sm sm:text-base"
             />
 
             <textarea
@@ -69,11 +68,11 @@ function AddProduct() {
               onChange={handleChange}
               placeholder="Product Description"
               rows="4"
-              className="w-full border p-3 rounded focus:ring-2 focus:ring-blue-500"
+              className="w-full border p-2 sm:p-3 rounded focus:ring-2 focus:ring-blue-500 text-sm sm:text-base"
             />
 
             {/* File Upload */}
-            <label className="flex items-center gap-2 cursor-pointer border border-dashed p-3 rounded-md hover:border-blue-500">
+            <label className="flex items-center gap-2 cursor-pointer border border-dashed p-2 sm:p-3 rounded-md hover:border-blue-500 text-sm sm:text-base">
               <FaUpload className="text-gray-500" />
               <span className="text-gray-600">Upload Product Image</span>
               <input
@@ -87,7 +86,7 @@ function AddProduct() {
 
             <button
               type="submit"
-              className="w-full bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 font-semibold"
+              className="w-full bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 font-semibold text-sm sm:text-base"
             >
               Add Product
             </button>
@@ -95,25 +94,27 @@ function AddProduct() {
         </div>
 
         {/* Product Preview */}
-        <div className="bg-white shadow rounded-lg p-6 flex flex-col items-center">
+        <div className="bg-white shadow rounded-lg p-4 sm:p-6 flex flex-col items-center">
           {preview ? (
             <img
               src={preview}
               alt="Product Preview"
-              className="w-48 h-48 object-cover rounded-lg border mb-4"
+              className="w-40 h-40 sm:w-48 sm:h-48 object-cover rounded-lg border mb-4"
             />
           ) : (
-            <div className="w-48 h-48 flex items-center justify-center border-2 border-dashed rounded-lg text-gray-400">
+            <div className="w-40 h-40 sm:w-48 sm:h-48 flex items-center justify-center border-2 border-dashed rounded-lg text-gray-400">
               No Image
             </div>
           )}
 
           <div className="text-center">
-            <h3 className="text-lg font-bold text-gray-800">{form.name || "Product Name"}</h3>
-            <p className="text-yellow-600 text-lg font-semibold mt-1">
-              {form.price ? `₹₹{form.price}` : "Price"}
+            <h3 className="text-base sm:text-lg font-bold text-gray-800">
+              {form.name || "Product Name"}
+            </h3>
+            <p className="text-yellow-600 text-sm sm:text-lg font-semibold mt-1">
+              {form.price ? `₹${form.price}` : "Price"}
             </p>
-            <p className="text-gray-600 mt-2">
+            <p className="text-gray-600 text-sm sm:text-base mt-2">
               {form.description || "Product description will appear here."}
             </p>
           </div>
