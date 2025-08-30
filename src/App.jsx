@@ -26,6 +26,7 @@ import BuyerNavbar from "./pages/BUYER/Buyernavber";
 import SellerNavbar from "./pages/Seller/selernavbar";
 import AddProduct from "./pages/Seller/AddProduct";
 import CheckStatus from "./pages/Seller/CheckStatus";
+import MyProducts from "./pages/Seller/MyProducts";  // ✅ New Import
 
 // Admin Dashboard + Navbar
 import AdminNavbar from "./pages/Admin/AdminNavbar";
@@ -71,6 +72,7 @@ function App() {
         <Route path="/seller-dashboard" element={<SellerNavbar />}>
           <Route index element={<AddProduct />} />
           <Route path="add-product" element={<AddProduct />} />
+          <Route path="my-products" element={<MyProducts />} /> {/* ✅ Added */}
           <Route path="check-status" element={<CheckStatus />} />
         </Route>
 

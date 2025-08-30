@@ -6,7 +6,7 @@ import { addCart } from "../../redux/action";
 import { FaStar, FaShoppingCart, FaCreditCard } from "react-icons/fa";
 import toast from "react-hot-toast";
 
-// ✅ Import local products JSON
+// ✅ Import local products JSON (with weight field included)
 import productsData from "../../data/products.json";
 
 const Product = () => {
@@ -98,9 +98,15 @@ const Product = () => {
           {product?.rating?.rate || "4.5"}
           <FaStar className="ml-2" />
         </p>
-        <h2 className="text-2xl font-bold text-gray-800 mb-6">
-          ₹ {product?.price}
+
+        {/* ✅ Price + Weight */}
+        <h2 className="text-2xl font-bold text-gray-800 mb-2">
+          ₹ {product?.price}{" "}
+          <span className="text-lg font-medium text-gray-500">
+            ({product?.weight})
+          </span>
         </h2>
+
         <p className="text-gray-600 mb-6">{product?.description}</p>
 
         <div className="flex gap-4">
@@ -158,9 +164,15 @@ const Product = () => {
             <h3 className="font-semibold text-gray-800 mb-2 line-clamp-2">
               {item.title}
             </h3>
+
+            {/* ✅ Price + Weight */}
             <p className="text-lg font-bold text-gray-900 mb-4">
-              ₹ {item.price}
+              ₹ {item.price}{" "}
+              <span className="text-sm font-medium text-gray-500">
+                ({item.weight})
+              </span>
             </p>
+
             <div className="flex flex-col gap-2">
               {/* ✅ Correct route param */}
               <Link

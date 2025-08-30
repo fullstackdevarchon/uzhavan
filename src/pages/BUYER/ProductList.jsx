@@ -155,8 +155,13 @@ const ProductList = () => {
                   {product.description}
                 </p>
               </div>
-              <div className="mt-auto flex justify-between items-center">
+              <div className="mt-auto">
                 <p className="text-xl font-bold">₹ {product.price}</p>
+                {product.weight && (
+                  <p className="text-sm text-gray-500 mt-1">
+                    {product.weight}
+                  </p>
+                )}
               </div>
             </div>
           </div>

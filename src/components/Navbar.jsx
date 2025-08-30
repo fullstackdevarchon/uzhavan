@@ -2,16 +2,9 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
-import {
-  FiShoppingCart,
-  FiUserPlus,
-  FiLogIn,
-  FiMenu,
-  FiX,
-} from "react-icons/fi";
+import { FiShoppingCart, FiUserPlus, FiLogIn, FiMenu, FiX } from "react-icons/fi";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import { Typewriter } from "react-simple-typewriter";
 
 const Navbar = () => {
   const cartState = useSelector((state) => state.handleCart);
@@ -24,27 +17,20 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="bg-gradient-to-r from-purple-900 via-pink-600 to-cyan-600 shadow-2xl fixed top-0 left-0 w-full z-50">
+    <nav className="bg-green-500 shadow-2xl fixed top-0 left-0 w-full z-50">
       <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between">
-        {/* Left: Logo + Typewriter */}
-        <div className="flex items-center gap-3 flex-shrink-0 w-64">
+
+        {/* Left: Logo + Title wrapped in NavLink to Home */}
+        <NavLink to="/" className="flex items-center gap-3 flex-shrink-0 w-64">
           <img
             src="/assets/logo.png"
             alt="Logo"
             className="h-14 w-14 rounded-full shadow-xl border-2 border-white"
           />
-          <h1 className="text-lg md:text-2xl font-extrabold tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-pink-300 to-white drop-shadow-lg whitespace-nowrap">
-            <Typewriter
-              words={["υᴢнαναη.ᴄᴏᴍ", "ꜰʀᴇꜱʜɴᴇꜱꜱ ᴅᴇʟɪᴠᴇʀᴇᴅ"]}
-              loop={true}
-              cursor
-              cursorStyle="|"
-              typeSpeed={70}
-              deleteSpeed={50}
-              delaySpeed={1500}
-            />
+          <h1 className="text-lg md:text-3xl font-extrabold tracking-wide bg-clip-text text-transparent bg-white">
+            υᴢнαναη.ᴄᴏᴍ
           </h1>
-        </div>
+        </NavLink>
 
         {/* Center: Nav links (Desktop only) */}
         <div className="hidden md:flex gap-10 text-white font-semibold text-lg mx-auto">
@@ -94,19 +80,19 @@ const Navbar = () => {
         <div className="flex items-center space-x-3 mt-3 md:mt-0">
           <NavLink
             to="/login"
-            className="flex items-center px-5 py-2 border border-white rounded-lg text-white hover:bg-white hover:text-purple-900 transition-all duration-300 shadow-md"
+            className="flex items-center px-5 py-2 border border-white rounded-lg text-white hover:bg-white hover:text-green-800 transition-all duration-300 shadow-md"
           >
             <FiLogIn className="mr-2" /> Login
           </NavLink>
           <NavLink
             to="/register"
-            className="flex items-center px-5 py-2 border border-white rounded-lg text-white hover:bg-white hover:text-purple-900 transition-all duration-300 shadow-md"
+            className="flex items-center px-5 py-2 border border-white rounded-lg text-white hover:bg-white hover:text-green-800 transition-all duration-300 shadow-md"
           >
             <FiUserPlus className="mr-2" /> Register
           </NavLink>
           <NavLink
             to="/cart"
-            className="flex items-center px-5 py-2 border border-white rounded-lg text-white hover:bg-white hover:text-purple-900 transition-all duration-300 shadow-md"
+            className="flex items-center px-5 py-2 border border-white rounded-lg text-white hover:bg-white hover:text-green-800 transition-all duration-300 shadow-md"
           >
             <FiShoppingCart className="mr-2" />
             {loading ? (
@@ -119,7 +105,7 @@ const Navbar = () => {
           {/* Mobile menu toggle */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 text-white rounded-lg hover:bg-purple-800 focus:outline-none ml-2"
+            className="md:hidden p-2 text-white rounded-lg hover:bg-green-700 focus:outline-none ml-2"
           >
             {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
           </button>
@@ -128,7 +114,7 @@ const Navbar = () => {
 
       {/* Mobile nav links */}
       {isOpen && (
-        <div className="flex flex-col md:hidden text-white font-semibold px-6 pb-4 bg-gradient-to-r from-purple-900 via-pink-600 to-cyan-600 w-full shadow-inner transition-all duration-500 ease-in-out">
+        <div className="flex flex-col md:hidden text-white font-semibold px-6 pb-4 bg-green-800 w-full shadow-inner transition-all duration-500 ease-in-out">
           <NavLink
             to="/"
             className="py-3 border-b border-white/30 hover:text-yellow-300"

@@ -1,3 +1,4 @@
+// src/components/AdminNavbar.jsx
 import React, { useState } from "react";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import {
@@ -10,7 +11,6 @@ import {
   FaWarehouse,
   FaTruck,
 } from "react-icons/fa";
-import { Typewriter } from "react-simple-typewriter";
 
 const AdminNavbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -25,25 +25,17 @@ const AdminNavbar = () => {
     <div className="min-h-screen flex flex-col">
       {/* Fixed Top Navbar */}
       <nav className="fixed top-0 left-0 w-full bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 shadow-lg px-6 py-4 flex items-center justify-between z-50">
-        {/* Logo + Title */}
-        <div className="flex items-center gap-3">
+        {/* Logo + Title wrapped in Link to Admin Dashboard */}
+        <Link to="/admin-dashboard" className="flex items-center gap-3">
           <img
             src="/assets/logo.png"
             alt="Logo"
             className="h-12 w-12 rounded-full shadow-lg"
           />
-          <h1 className="text-2xl md:text-3xl font-extrabold tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-yellow-300 via-pink-300 to-white drop-shadow-md">
-            <Typewriter
-              words={[" υᴢнαναη.ᴄᴏᴍ", " ᴀᴅᴍɪɴ ᴅᴀꜱʜʙᴏᴀʀᴅ"]}
-              loop={true}
-              cursor
-              cursorStyle="|"
-              typeSpeed={70}
-              deleteSpeed={50}
-              delaySpeed={1500}
-            />
+          <h1 className="text-2xl md:text-2xl font-extrabold tracking-wide text-white drop-shadow-md">
+            Admin Dashboard
           </h1>
-        </div>
+        </Link>
 
         {/* Desktop Links */}
         <div className="hidden md:flex gap-6 text-white font-medium text-lg">

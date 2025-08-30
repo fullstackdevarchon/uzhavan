@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { FaCheckCircle, FaClock, FaTimesCircle } from "react-icons/fa";
+import {
+  FaCheckCircle,
+  FaClock,
+  FaTimesCircle,
+  FaBalanceScale,
+  FaBoxes,
+} from "react-icons/fa";
 
 function CheckStatus() {
   const [orders, setOrders] = useState([]);
@@ -11,6 +17,8 @@ function CheckStatus() {
         id: 1,
         title: "Catch Red Chilli Powder",
         price: 109.95,
+        weight: "500g",
+        quantity: 10,
         category: "spices",
         image:
           "https://catchfoods.com/wp-content/uploads/2023/07/Catch-Spices-Red-Chilli-Powder.webp",
@@ -21,6 +29,8 @@ function CheckStatus() {
         id: 2,
         title: "Catch Coriander Powder",
         price: 22.3,
+        weight: "250g",
+        quantity: 20,
         category: "spices",
         image: "https://m.media-amazon.com/images/I/7154zLsH36L.jpg",
         status: "Accepted",
@@ -30,6 +40,8 @@ function CheckStatus() {
         id: 3,
         title: "Catch Turmeric Powder",
         price: 35.5,
+        weight: "1kg",
+        quantity: 15,
         category: "spices",
         image:
           "https://www.bbassets.com/media/uploads/p/xl/30006777_6-catch-turmeric-powder.jpg",
@@ -40,6 +52,8 @@ function CheckStatus() {
         id: 5,
         title: "Fresh Apples",
         price: 120,
+        weight: "2kg",
+        quantity: 25,
         category: "fruits",
         image:
           "https://freshindiaorganics.com/cdn/shop/products/Apples.jpg?v=1686739530",
@@ -50,6 +64,8 @@ function CheckStatus() {
         id: 7,
         title: "Fresh Mangoes",
         price: 150,
+        weight: "5kg",
+        quantity: 12,
         category: "fruits",
         image:
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbQwrS6BBEsCutkygv4uQ-zGcgj3WQWHMfMA&s",
@@ -112,6 +128,18 @@ function CheckStatus() {
                 {order.category}
               </p>
               <p className="text-gray-900 font-bold mb-3">₹{order.price}</p>
+
+              {/* Weight & Quantity */}
+              <div className="flex items-center justify-between mb-3 text-sm text-gray-700">
+                <span className="flex items-center gap-2">
+                  <FaBalanceScale className="text-gray-500" />{" "}
+                  <span className="font-medium">Weight:</span> {order.weight}
+                </span>
+                <span className="flex items-center gap-2">
+                  <FaBoxes className="text-gray-500" />{" "}
+                  <span className="font-medium">Qty:</span> {order.quantity}
+                </span>
+              </div>
 
               {/* Status */}
               <div className="mb-3">{getStatusBadge(order.status)}</div>

@@ -1,6 +1,6 @@
 // src/components/BuyerNavbar.jsx
 import React, { useState, useEffect } from "react";
-import { NavLink, Outlet, useNavigate } from "react-router-dom";
+import { NavLink, Outlet, useNavigate, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import {
   FaBoxOpen,
@@ -12,7 +12,6 @@ import {
 } from "react-icons/fa";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import { Typewriter } from "react-simple-typewriter";
 
 const BuyerNavbar = () => {
   const navigate = useNavigate();
@@ -31,52 +30,55 @@ const BuyerNavbar = () => {
   };
 
   const navLinkClass = ({ isActive }) =>
-    `relative px-1 transition-colors duration-300 ${
+    `relative px-2 transition-colors duration-300 flex items-center gap-2 ${
       isActive
-        ? "text-yellow-400 font-semibold after:w-full"
-        : "text-white hover:text-yellow-300 after:w-0"
-    } after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:bg-yellow-400 after:transition-all`;
+        ? "text-yellow-500 font-semibold after:w-full"
+        : "text-white hover:text-yellow-400 after:w-0"
+    } after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:bg-yellow-500 after:transition-all`;
+
+  const iconCircleClass =
+    "p-1 rounded-full bg-white/20 text-white flex items-center justify-center text-base";
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
       {/* Navbar */}
-      <nav className="bg-gradient-to-r from-purple-800 via-pink-600 to-cyan-500 shadow-2xl fixed top-0 left-0 w-full z-50">
+      <nav className="bg-green-600 fixed top-0 left-0 w-full shadow-md z-50">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          {/* Left: Logo + Typewriter */}
-          <div className="flex items-center gap-3 flex-shrink-0">
+          {/* Left: Logo + Title wrapped in Link to Buyer Dashboard */}
+          <Link to="/buyer-dashboard" className="flex items-center gap-3 flex-shrink-0">
             <img
               src="/assets/logo.png"
               alt="Logo"
-              className="h-12 w-12 rounded-full shadow-xl border-2 border-white object-cover"
+              className="h-12 w-12 rounded-full shadow-lg border-2 border-white object-cover"
             />
-            <h1 className="text-xl md:text-2xl font-extrabold tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-pink-300 to-white drop-shadow-lg whitespace-nowrap">
-              <Typewriter
-                words={["υᴢнαναη.ᴄᴏᴍ", "ʙᴜʏᴇʀᴅᴀꜱʜʙᴏᴀʀᴅ"]}
-                loop={true}
-                cursor
-                cursorStyle="|"
-                typeSpeed={70}
-                deleteSpeed={50}
-                delaySpeed={1500}
-              />
+            <h1 className="text-xl md:text-2xl font-extrabold text-white">
+              Buyer Dashboard
             </h1>
-          </div>
+          </Link>
 
           {/* Desktop Nav */}
-          <ul className="hidden md:flex items-center space-x-8 font-medium">
+          <ul className="hidden md:flex items-center space-x-6 font-medium">
             <li>
               <NavLink to="products" className={navLinkClass}>
-                <FaBoxOpen className="inline mr-1" /> Products
+                <span className={iconCircleClass}>
+                  <FaBoxOpen />
+                </span>
+                Products
               </NavLink>
             </li>
             <li>
               <NavLink to="orders" className={navLinkClass}>
-                <FaClipboardList className="inline mr-1" /> My Orders
+                <span className={iconCircleClass}>
+                  <FaClipboardList />
+                </span>
+                My Orders
               </NavLink>
             </li>
             <li>
               <NavLink to="cart" className={navLinkClass}>
-                <FaShoppingCart className="inline mr-1" />
+                <span className={iconCircleClass}>
+                  <FaShoppingCart />
+                </span>
                 {loading ? (
                   <Skeleton width={40} height={20} baseColor="#cbd5e1" />
                 ) : (
@@ -89,7 +91,10 @@ const BuyerNavbar = () => {
                 onClick={handleLogout}
                 className="flex items-center gap-2 text-red-400 hover:text-red-200 font-semibold transition-colors focus:outline-none"
               >
-                <FaSignOutAlt /> Logout
+                <span className={iconCircleClass}>
+                  <FaSignOutAlt />
+                </span>
+                Logout
               </button>
             </li>
           </ul>
@@ -105,45 +110,53 @@ const BuyerNavbar = () => {
 
         {/* Mobile Nav */}
         {isOpen && (
-          <div className="md:hidden bg-gradient-to-r from-purple-800 via-pink-600 to-cyan-500 shadow-inner px-6 py-2 rounded-b-2xl divide-y divide-white/30">
+          <div className="md:hidden bg-green-600 shadow-inner px-6 py-2 rounded-b-2xl divide-y divide-white/30">
             <NavLink
               to="products"
               onClick={() => setIsOpen(false)}
               className={({ isActive }) =>
-                `block py-3 ${
+                `block py-3 flex items-center gap-2 ${
                   isActive
-                    ? "text-yellow-400 font-semibold"
-                    : "text-white hover:text-yellow-300"
+                    ? "text-yellow-500 font-semibold"
+                    : "text-white hover:text-yellow-400"
                 }`
               }
             >
-              <FaBoxOpen className="inline mr-2" /> Products
+              <span className={iconCircleClass}>
+                <FaBoxOpen />
+              </span>
+              Products
             </NavLink>
             <NavLink
               to="orders"
               onClick={() => setIsOpen(false)}
               className={({ isActive }) =>
-                `block py-3 ${
+                `block py-3 flex items-center gap-2 ${
                   isActive
-                    ? "text-yellow-400 font-semibold"
-                    : "text-white hover:text-yellow-300"
+                    ? "text-yellow-500 font-semibold"
+                    : "text-white hover:text-yellow-400"
                 }`
               }
             >
-              <FaClipboardList className="inline mr-2" /> My Orders
+              <span className={iconCircleClass}>
+                <FaClipboardList />
+              </span>
+              My Orders
             </NavLink>
             <NavLink
               to="cart"
               onClick={() => setIsOpen(false)}
               className={({ isActive }) =>
-                `block py-3 ${
+                `block py-3 flex items-center gap-2 ${
                   isActive
-                    ? "text-yellow-400 font-semibold"
-                    : "text-white hover:text-yellow-300"
+                    ? "text-yellow-500 font-semibold"
+                    : "text-white hover:text-yellow-400"
                 }`
               }
             >
-              <FaShoppingCart className="inline mr-2" />
+              <span className={iconCircleClass}>
+                <FaShoppingCart />
+              </span>
               {loading ? (
                 <Skeleton width={40} height={20} baseColor="#cbd5e1" />
               ) : (
@@ -157,7 +170,10 @@ const BuyerNavbar = () => {
               }}
               className="block py-3 w-full text-left flex items-center gap-2 text-red-400 hover:text-red-200 font-semibold transition-colors focus:outline-none"
             >
-              <FaSignOutAlt /> Logout
+              <span className={iconCircleClass}>
+                <FaSignOutAlt />
+              </span>
+              Logout
             </button>
           </div>
         )}
@@ -165,7 +181,7 @@ const BuyerNavbar = () => {
 
       {/* Content */}
       <main className="flex-1 p-6 bg-gray-50 mt-20">
-        <Outlet /> {/* Nested routes render here */}
+        <Outlet />
       </main>
     </div>
   );

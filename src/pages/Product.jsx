@@ -94,9 +94,14 @@ const Product = () => {
           {product?.rating?.rate || "4.5"}
           <FaStar className="ml-2" />
         </p>
-        <h2 className="text-2xl font-bold text-gray-800 mb-6">
-          ₹ {product?.price}
-        </h2>
+
+        <div className="mb-6">
+          <h2 className="text-2xl font-bold text-gray-800">₹ {product?.price}</h2>
+          {product?.weight && (
+            <p className="text-sm text-gray-500 mt-1">{product.weight}</p>
+          )}
+        </div>
+
         <p className="text-gray-600 mb-6">{product?.description}</p>
 
         <div className="flex gap-4">
@@ -154,13 +159,16 @@ const Product = () => {
             <h3 className="font-semibold text-gray-800 mb-2 line-clamp-2">
               {item.title}
             </h3>
-            <p className="text-lg font-bold text-gray-900 mb-4">
-              ₹ {item.price}
-            </p>
+            <div className="mb-4">
+              <p className="text-lg font-bold text-gray-900">₹ {item.price}</p>
+              {item.weight && (
+                <p className="text-sm text-gray-500 mt-1">{item.weight}</p>
+              )}
+            </div>
             <div className="flex flex-col gap-2">
               {/* ✅ Correct Dynamic Link (buyer-dashboard path) */}
               <Link
-                to={`/buyer-dashboard/product/${item.id}`}
+                to={`/product/${item.id}`}
                 className="px-4 py-2 text-center bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition"
               >
                 <FaCreditCard className="inline mr-2" /> Buy Now

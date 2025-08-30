@@ -21,6 +21,8 @@ const SellerRequests = () => {
         product: "Catch Red Chilli Powder",
         category: "spices",
         price: 120, // per packet
+        weight: "500g",
+        quantity: 50, // stock
         status: "Pending",
       },
       {
@@ -29,6 +31,8 @@ const SellerRequests = () => {
         product: "Fresh Apples",
         category: "fruits",
         price: 180, // per kg
+        weight: "1kg",
+        quantity: 100,
         status: "Pending",
       },
       {
@@ -36,7 +40,9 @@ const SellerRequests = () => {
         seller: "Amit Verma",
         product: "Fresh Mangoes",
         category: "fruits",
-        price: 150, // per kg
+        price: 150,
+        weight: "1kg",
+        quantity: 75,
         status: "Pending",
       },
       {
@@ -44,7 +50,9 @@ const SellerRequests = () => {
         seller: "Neha Gupta",
         product: "Fresh Tomatoes",
         category: "vegetables",
-        price: 60, // per kg
+        price: 60,
+        weight: "1kg",
+        quantity: 200,
         status: "Pending",
       },
     ];
@@ -107,6 +115,8 @@ const SellerRequests = () => {
               <th className="p-4 border">Product</th>
               <th className="p-4 border">Category</th>
               <th className="p-4 border">Price</th>
+              <th className="p-4 border">Weight</th>
+              <th className="p-4 border">Quantity</th>
               <th className="p-4 border">Status</th>
               <th className="p-4 border text-center">Action</th>
             </tr>
@@ -123,7 +133,7 @@ const SellerRequests = () => {
                 <td className="p-4 border capitalize flex items-center gap-2">
                   {getCategoryIcon(req.category)}
                   <span
-                    className={`px-3 py-1 rounded-full text-xs font-semibold shadow-sm ₹{
+                    className={`px-3 py-1 rounded-full text-xs font-semibold shadow-sm ${
                       req.category === "spices"
                         ? "bg-yellow-100 text-yellow-800"
                         : req.category === "fruits"
@@ -137,6 +147,8 @@ const SellerRequests = () => {
                 <td className="p-4 border text-center font-semibold text-gray-700">
                   ₹{req.price}
                 </td>
+                <td className="p-4 border text-center">{req.weight}</td>
+                <td className="p-4 border text-center">{req.quantity}</td>
                 <td className="p-4 border">
                   {req.status === "Pending" ? (
                     <span className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-xs font-semibold shadow-sm">
@@ -144,7 +156,7 @@ const SellerRequests = () => {
                     </span>
                   ) : (
                     <span
-                      className={`px-3 py-1 rounded-full text-xs font-semibold shadow-sm ₹{
+                      className={`px-3 py-1 rounded-full text-xs font-semibold shadow-sm ${
                         req.status === "Approved"
                           ? "bg-green-100 text-green-700"
                           : "bg-red-100 text-red-700"
@@ -193,9 +205,11 @@ const SellerRequests = () => {
             </div>
             <p className="text-gray-800 font-medium">{req.product}</p>
             <p className="text-gray-600 text-sm">💰 Price: ₹{req.price}</p>
+            <p className="text-gray-600 text-sm">⚖️ Weight: {req.weight}</p>
+            <p className="text-gray-600 text-sm">📦 Quantity: {req.quantity}</p>
             <div className="flex justify-between items-center mt-3">
               <span
-                className={`px-3 py-1 rounded-full text-xs font-semibold shadow-sm ₹{
+                className={`px-3 py-1 rounded-full text-xs font-semibold shadow-sm ${
                   req.status === "Pending"
                     ? "bg-gray-100 text-gray-700"
                     : req.status === "Approved"

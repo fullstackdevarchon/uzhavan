@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
 import { FaShoppingCart, FaCreditCard, FaChevronDown } from "react-icons/fa";
 
-// ✅ Import local JSON file directly
+// ✅ Import local JSON file directly (with weight included)
 import productsData from "../data/products.json";
 
 const ProductList = () => {
@@ -120,7 +120,7 @@ const ProductList = () => {
             {/* Hover icons */}
             <div className="absolute top-2 right-2 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
               <Link
-                to={`/buyer-dashboard/product/${product.id}`}  // ✅ fixed link
+                to={`/product/${product.id}`} // ✅ fixed link
                 className="p-2 bg-gray-800 text-white rounded-full hover:bg-gray-900 shadow-lg flex items-center justify-center"
               >
                 <FaCreditCard />
@@ -156,7 +156,13 @@ const ProductList = () => {
                 </p>
               </div>
               <div className="mt-auto flex justify-between items-center">
-                <p className="text-xl font-bold">₹ {product.price}</p>
+                {/* ✅ Price and weight together */}
+                <p className="text-lg font-bold">
+                  ₹ {product.price}{" "}
+                  <span className="text-sm font-medium text-gray-500">
+                    ({product.weight})
+                  </span>
+                </p>
               </div>
             </div>
           </div>

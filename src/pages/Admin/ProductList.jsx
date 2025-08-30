@@ -51,11 +51,23 @@ const ProductListAdmin = () => {
     }
   };
 
-  // Delete product
+  // ✅ Delete product with confirmation
   const deleteProduct = (id) => {
-    const updated = filter.filter((item) => item.id !== id);
-    setFilter(updated);
-    setData(updated);
+    if (window.confirm("Are you sure you want to delete this product?")) {
+      const updatedData = data.filter((item) => item.id !== id);
+      setData(updatedData);
+
+      // Keep filter in sync with updated data
+      if (category === "All") {
+        setFilter(updatedData);
+      } else {
+        setFilter(
+          updatedData.filter(
+            (item) => item.category.toLowerCase() === category.toLowerCase()
+          )
+        );
+      }
+    }
   };
 
   // Skeleton loader
@@ -147,6 +159,11 @@ const ProductListAdmin = () => {
               </div>
               <div className="mt-auto flex justify-between items-center">
                 <p className="text-xl font-bold">₹ {product.price}</p>
+                {product.weight && (
+                  <span className="text-sm text-gray-500">
+                    {product.weight}
+                  </span>
+                )}
               </div>
             </div>
           </div>
@@ -157,7 +174,9 @@ const ProductListAdmin = () => {
 
   return (
     <section className="container mx-auto py-12 px-4 mt-20 min-h-screen">
-      <h2 className="text-4xl font-bold text-center mb-8">Admin Product List</h2>
+      <h2 className="text-4xl font-bold text-center mb-8">
+        Admin Product List
+      </h2>
       {loading ? <Loading /> : <ShowProducts />}
     </section>
   );
