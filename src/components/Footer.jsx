@@ -10,8 +10,13 @@ const Footer = () => {
     { name: "Products", to: "/product" },
     { name: "About", to: "/about" },
     { name: "Contact", to: "/contact" },
+<<<<<<< HEAD
     // { name: "Login", to: "/login", icon: <FiLogIn className="inline mr-1" /> },
     // { name: "Register", to: "/register", icon: <FiUserPlus className="inline mr-1" /> },
+=======
+    { name: "Login", to: "/login", icon: <FiLogIn className="inline mr-1" /> },
+    { name: "Register", to: "/register", icon: <FiUserPlus className="inline mr-1" /> },
+>>>>>>> fd4e5b9 (fourth commit)
     { name: "Cart", to: "/cart", icon: <FiShoppingCart className="inline mr-1" /> },
   ];
 

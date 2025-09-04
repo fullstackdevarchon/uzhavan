@@ -27,12 +27,17 @@ const AdminNavbar = () => {
       {/* Fixed Top Navbar */}
       <nav className="fixed top-0 left-0 w-full bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 shadow-lg px-6 py-4 flex items-center justify-between z-50">
 <<<<<<< HEAD
+<<<<<<< HEAD
         {/* Logo + Title wrapped in Link to Admin Dashboard */}
         <Link to="/admin-dashboard" className="flex items-center gap-3">
 =======
         {/* Logo + Title */}
         <div className="flex items-center gap-3">
 >>>>>>> 6d66530 (second commit)
+=======
+        {/* Logo + Title wrapped in Link to Admin Dashboard */}
+        <Link to="/admin-dashboard" className="flex items-center gap-3">
+>>>>>>> fd4e5b9 (fourth commit)
           <img
             src="/assets/logo.png"
             alt="Logo"

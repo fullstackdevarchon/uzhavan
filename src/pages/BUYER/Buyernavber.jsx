@@ -43,6 +43,7 @@ const BuyerNavbar = () => {
     <div className="min-h-screen flex flex-col bg-gray-50">
       {/* Navbar */}
 <<<<<<< HEAD
+<<<<<<< HEAD
       <nav className="bg-green-600 fixed top-0 left-0 w-full shadow-md z-50">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           {/* Left: Logo + Title wrapped in Link to Buyer Dashboard */}
@@ -56,14 +57,18 @@ const BuyerNavbar = () => {
               Buyer Dashboard
 =======
       <nav className="bg-gradient-to-r from-purple-800 via-pink-600 to-cyan-500 shadow-2xl fixed top-0 left-0 w-full z-50">
+=======
+      <nav className="bg-green-600 fixed top-0 left-0 w-full shadow-md z-50">
+>>>>>>> fd4e5b9 (fourth commit)
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          {/* Left: Logo + Typewriter */}
-          <div className="flex items-center gap-3 flex-shrink-0">
+          {/* Left: Logo + Title wrapped in Link to Buyer Dashboard */}
+          <Link to="/buyer-dashboard" className="flex items-center gap-3 flex-shrink-0">
             <img
               src="/assets/logo.png"
               alt="Logo"
-              className="h-12 w-12 rounded-full shadow-xl border-2 border-white object-cover"
+              className="h-12 w-12 rounded-full shadow-lg border-2 border-white object-cover"
             />
+<<<<<<< HEAD
             <h1 className="text-xl md:text-2xl font-extrabold tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-pink-300 to-white drop-shadow-lg whitespace-nowrap">
               <Typewriter
                 words={["υᴢнαναη.ᴄᴏᴍ", "ʙᴜʏᴇʀᴅᴀꜱʜʙᴏᴀʀᴅ"]}
@@ -75,6 +80,10 @@ const BuyerNavbar = () => {
                 delaySpeed={1500}
               />
 >>>>>>> 6d66530 (second commit)
+=======
+            <h1 className="text-xl md:text-2xl font-extrabold text-white">
+              Buyer Dashboard
+>>>>>>> fd4e5b9 (fourth commit)
             </h1>
           </Link>
 
@@ -133,19 +142,27 @@ const BuyerNavbar = () => {
         {/* Mobile Nav */}
         {isOpen && (
 <<<<<<< HEAD
+<<<<<<< HEAD
           <div className="md:hidden bg-green-600 shadow-inner px-6 py-2 rounded-b-2xl divide-y divide-white/30">
 =======
           <div className="md:hidden bg-gradient-to-r from-purple-800 via-pink-600 to-cyan-500 shadow-inner px-6 py-2 rounded-b-2xl divide-y divide-white/30">
 >>>>>>> 6d66530 (second commit)
+=======
+          <div className="md:hidden bg-green-600 shadow-inner px-6 py-2 rounded-b-2xl divide-y divide-white/30">
+>>>>>>> fd4e5b9 (fourth commit)
             <NavLink
               to="products"
               onClick={() => setIsOpen(false)}
               className={({ isActive }) =>
 <<<<<<< HEAD
+<<<<<<< HEAD
                 `block py-3 flex items-center gap-2 ${
 =======
                 `block py-3 ${
 >>>>>>> 6d66530 (second commit)
+=======
+                `block py-3 flex items-center gap-2 ${
+>>>>>>> fd4e5b9 (fourth commit)
                   isActive
                     ? "text-yellow-500 font-semibold"
                     : "text-white hover:text-yellow-400"
@@ -162,10 +179,14 @@ const BuyerNavbar = () => {
               onClick={() => setIsOpen(false)}
               className={({ isActive }) =>
 <<<<<<< HEAD
+<<<<<<< HEAD
                 `block py-3 flex items-center gap-2 ${
 =======
                 `block py-3 ${
 >>>>>>> 6d66530 (second commit)
+=======
+                `block py-3 flex items-center gap-2 ${
+>>>>>>> fd4e5b9 (fourth commit)
                   isActive
                     ? "text-yellow-500 font-semibold"
                     : "text-white hover:text-yellow-400"
@@ -182,10 +203,14 @@ const BuyerNavbar = () => {
               onClick={() => setIsOpen(false)}
               className={({ isActive }) =>
 <<<<<<< HEAD
+<<<<<<< HEAD
                 `block py-3 flex items-center gap-2 ${
 =======
                 `block py-3 ${
 >>>>>>> 6d66530 (second commit)
+=======
+                `block py-3 flex items-center gap-2 ${
+>>>>>>> fd4e5b9 (fourth commit)
                   isActive
                     ? "text-yellow-500 font-semibold"
                     : "text-white hover:text-yellow-400"
@@ -220,10 +245,14 @@ const BuyerNavbar = () => {
       {/* Content */}
       <main className="flex-1 p-6 bg-gray-50 mt-20">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <Outlet />
 =======
         <Outlet /> {/* Nested routes render here */}
 >>>>>>> 6d66530 (second commit)
+=======
+        <Outlet />
+>>>>>>> fd4e5b9 (fourth commit)
       </main>
     </div>
   );

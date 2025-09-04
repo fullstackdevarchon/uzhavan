@@ -169,10 +169,14 @@ const Product = () => {
               {/* ✅ Correct Dynamic Link (buyer-dashboard path) */}
               <Link
 <<<<<<< HEAD
+<<<<<<< HEAD
                 to={`/product/${item.id}`}
 =======
                 to={`/buyer-dashboard/product/${item.id}`}
 >>>>>>> 6d66530 (second commit)
+=======
+                to={`/product/${item.id}`}
+>>>>>>> fd4e5b9 (fourth commit)
                 className="px-4 py-2 text-center bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition"
               >
                 <FaCreditCard className="inline mr-2" /> Buy Now

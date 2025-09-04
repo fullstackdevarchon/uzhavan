@@ -18,6 +18,7 @@ const Navbar = () => {
 
   return (
 <<<<<<< HEAD
+<<<<<<< HEAD
     <nav className="bg-green-500 shadow-2xl fixed top-0 left-0 w-full z-50">
       <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between relative">
 
@@ -29,6 +30,13 @@ const Navbar = () => {
         {/* Left: Logo + Typewriter */}
         <div className="flex items-center gap-3 flex-shrink-0 w-64">
 >>>>>>> 6d66530 (second commit)
+=======
+    <nav className="bg-green-500 shadow-2xl fixed top-0 left-0 w-full z-50">
+      <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between">
+
+        {/* Left: Logo + Title wrapped in NavLink to Home */}
+        <NavLink to="/" className="flex items-center gap-3 flex-shrink-0 w-64">
+>>>>>>> fd4e5b9 (fourth commit)
           <img
             src="/assets/logo.png"
             alt="Logo"
@@ -108,6 +116,17 @@ const Navbar = () => {
               <>Cart ({cartState.length})</>
             )}
           </NavLink>
+<<<<<<< HEAD
+=======
+
+          {/* Mobile menu toggle */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden p-2 text-white rounded-lg hover:bg-green-700 focus:outline-none ml-2"
+          >
+            {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+          </button>
+>>>>>>> fd4e5b9 (fourth commit)
         </div>
 
         {/* Mobile menu toggle (Top-right corner) */}
@@ -122,10 +141,14 @@ const Navbar = () => {
       {/* Mobile nav links + login/register/cart */}
       {isOpen && (
 <<<<<<< HEAD
+<<<<<<< HEAD
         <div className="flex flex-col md:hidden text-white font-semibold px-6 pb-4 bg-green-800 w-full shadow-inner transition-all duration-500 ease-in-out space-y-2 mt-16">
 =======
         <div className="flex flex-col md:hidden text-white font-semibold px-6 pb-4 bg-gradient-to-r from-purple-900 via-pink-600 to-cyan-600 w-full shadow-inner transition-all duration-500 ease-in-out">
 >>>>>>> 6d66530 (second commit)
+=======
+        <div className="flex flex-col md:hidden text-white font-semibold px-6 pb-4 bg-green-800 w-full shadow-inner transition-all duration-500 ease-in-out">
+>>>>>>> fd4e5b9 (fourth commit)
           <NavLink
             to="/"
             className="py-3 border-b border-white/30 hover:text-yellow-300"
