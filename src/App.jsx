@@ -26,15 +26,16 @@ import BuyerNavbar from "./pages/BUYER/Buyernavber";
 import SellerNavbar from "./pages/Seller/selernavbar";
 import AddProduct from "./pages/Seller/AddProduct";
 import CheckStatus from "./pages/Seller/CheckStatus";
-import MyProducts from "./pages/Seller/MyProducts";  // ✅ New Import
+import MyProducts from "./pages/Seller/MyProducts"; // ✅ My Products Page
 
 // Admin Dashboard + Navbar
 import AdminNavbar from "./pages/Admin/AdminNavbar";
-import ProductListAdmin from "./pages/Admin/ProductList"; 
-import SellerRequests from "./pages/Admin/SellerRequests"; 
-import Analytics from "./pages/Admin/Analytics"; 
-import Inventory from "./pages/Admin/Inventory"; 
-import Orders from "./pages/Admin/Orders"; 
+import ProductListAdmin from "./pages/Admin/ProductList";
+import SellerRequests from "./pages/Admin/SellerRequests";
+import Analytics from "./pages/Admin/Analytics";
+import Inventory from "./pages/Admin/Inventory";
+import Orders from "./pages/Admin/Orders";
+import SelectedProducts from "./pages/Admin/SelectedProducts"; // ✅ New Import
 
 // Utilities
 import ScrollToTop from "./components/ScrollToTop";
@@ -72,7 +73,7 @@ function App() {
         <Route path="/seller-dashboard" element={<SellerNavbar />}>
           <Route index element={<AddProduct />} />
           <Route path="add-product" element={<AddProduct />} />
-          <Route path="my-products" element={<MyProducts />} /> {/* ✅ Added */}
+          <Route path="my-products" element={<MyProducts />} />
           <Route path="check-status" element={<CheckStatus />} />
         </Route>
 
@@ -84,6 +85,7 @@ function App() {
           <Route path="analytics" element={<Analytics />} />
           <Route path="inventory" element={<Inventory />} />
           <Route path="orders" element={<Orders />} />
+          <Route path="selected-products" element={<SelectedProducts />} /> {/* ✅ Added */}
         </Route>
 
         {/* Error Handling */}

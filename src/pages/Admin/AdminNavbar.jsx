@@ -10,6 +10,7 @@ import {
   FaTimes,
   FaWarehouse,
   FaTruck,
+  FaCheckCircle, // ✅ New icon for Selected Products
 } from "react-icons/fa";
 
 const AdminNavbar = () => {
@@ -47,6 +48,7 @@ const AdminNavbar = () => {
             Product List
             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
           </Link>
+
           <Link
             to="/admin-dashboard/seller-requests"
             className="flex items-center gap-2 relative group"
@@ -55,6 +57,7 @@ const AdminNavbar = () => {
             Seller Requests
             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
           </Link>
+
           <Link
             to="/admin-dashboard/analytics"
             className="flex items-center gap-2 relative group"
@@ -63,6 +66,7 @@ const AdminNavbar = () => {
             Analytics
             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
           </Link>
+
           <Link
             to="/admin-dashboard/inventory"
             className="flex items-center gap-2 relative group"
@@ -71,6 +75,7 @@ const AdminNavbar = () => {
             Inventory
             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
           </Link>
+
           <Link
             to="/admin-dashboard/orders"
             className="flex items-center gap-2 relative group"
@@ -79,6 +84,17 @@ const AdminNavbar = () => {
             Orders
             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
           </Link>
+
+          {/* ✅ New Selected Products Link */}
+          <Link
+            to="/admin-dashboard/selected-products"
+            className="flex items-center gap-2 relative group"
+          >
+            <FaCheckCircle />
+            Selected Products
+            <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
+          </Link>
+
           <button
             onClick={handleLogout}
             className="flex items-center gap-2 hover:text-red-300 transition"
@@ -106,6 +122,7 @@ const AdminNavbar = () => {
           >
             <FaBoxOpen /> Product List
           </Link>
+
           <Link
             to="/admin-dashboard/seller-requests"
             onClick={() => setMenuOpen(false)}
@@ -113,6 +130,7 @@ const AdminNavbar = () => {
           >
             <FaClipboardList /> Seller Requests
           </Link>
+
           <Link
             to="/admin-dashboard/analytics"
             onClick={() => setMenuOpen(false)}
@@ -120,6 +138,7 @@ const AdminNavbar = () => {
           >
             <FaChartLine /> Analytics
           </Link>
+
           <Link
             to="/admin-dashboard/inventory"
             onClick={() => setMenuOpen(false)}
@@ -127,6 +146,7 @@ const AdminNavbar = () => {
           >
             <FaWarehouse /> Inventory
           </Link>
+
           <Link
             to="/admin-dashboard/orders"
             onClick={() => setMenuOpen(false)}
@@ -134,6 +154,16 @@ const AdminNavbar = () => {
           >
             <FaTruck /> Orders
           </Link>
+
+          {/* ✅ New Selected Products in Mobile */}
+          <Link
+            to="/admin-dashboard/selected-products"
+            onClick={() => setMenuOpen(false)}
+            className="flex items-center gap-2 border-b border-white/40 pb-2"
+          >
+            <FaCheckCircle /> Selected Products
+          </Link>
+
           <button
             onClick={() => {
               setMenuOpen(false);
