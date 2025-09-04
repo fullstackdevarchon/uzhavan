@@ -17,11 +17,18 @@ const Navbar = () => {
   }, []);
 
   return (
+<<<<<<< HEAD
     <nav className="bg-green-500 shadow-2xl fixed top-0 left-0 w-full z-50">
       <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between relative">
 
         {/* Left: Logo + Title */}
         <NavLink to="/" className="flex items-center gap-3 flex-shrink-0 w-64 mx-auto md:mx-0">
+=======
+    <nav className="bg-gradient-to-r from-purple-900 via-pink-600 to-cyan-600 shadow-2xl fixed top-0 left-0 w-full z-50">
+      <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between">
+        {/* Left: Logo + Typewriter */}
+        <div className="flex items-center gap-3 flex-shrink-0 w-64">
+>>>>>>> 6d66530 (second commit)
           <img
             src="/assets/logo.png"
             alt="Logo"
@@ -114,7 +121,11 @@ const Navbar = () => {
 
       {/* Mobile nav links + login/register/cart */}
       {isOpen && (
+<<<<<<< HEAD
         <div className="flex flex-col md:hidden text-white font-semibold px-6 pb-4 bg-green-800 w-full shadow-inner transition-all duration-500 ease-in-out space-y-2 mt-16">
+=======
+        <div className="flex flex-col md:hidden text-white font-semibold px-6 pb-4 bg-gradient-to-r from-purple-900 via-pink-600 to-cyan-600 w-full shadow-inner transition-all duration-500 ease-in-out">
+>>>>>>> 6d66530 (second commit)
           <NavLink
             to="/"
             className="py-3 border-b border-white/30 hover:text-yellow-300"

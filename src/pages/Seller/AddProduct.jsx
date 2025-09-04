@@ -29,6 +29,7 @@ function AddProduct() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+<<<<<<< HEAD
 
     // Use customWeight if weight is "custom"
     const finalWeight =
@@ -51,6 +52,11 @@ function AddProduct() {
       description: "",
       image: null,
     });
+=======
+    console.log("New Product:", form);
+    toast.success("Product added successfully!");
+    setForm({ name: "", price: "", description: "", image: null });
+>>>>>>> 6d66530 (second commit)
     setPreview(null);
   };
 
@@ -58,13 +64,20 @@ function AddProduct() {
     form.weight === "custom" ? form.customWeight : form.weight;
 
   return (
+<<<<<<< HEAD
     <div className="p-4 sm:p-6 max-w-6xl mx-auto">
       <h2 className="text-2xl sm:text-3xl font-bold mb-8 text-gray-800 text-center">
         ➕ Add New Product
+=======
+    <div className="p-4 sm:p-6 max-w-5xl mx-auto">
+      <h2 className="text-xl sm:text-2xl font-semibold mb-6 text-gray-800 text-center sm:text-left">
+        Add New Product
+>>>>>>> 6d66530 (second commit)
       </h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
         {/* Product Form */}
+<<<<<<< HEAD
         <div className="bg-white shadow-lg rounded-2xl p-6 border border-gray-100">
           <form onSubmit={handleSubmit} className="space-y-5">
             {/* Name */}
@@ -187,6 +200,55 @@ function AddProduct() {
             <button
               type="submit"
               className="w-full bg-blue-600 text-white px-4 py-3 rounded-lg hover:bg-blue-700 font-semibold text-sm sm:text-base transition-all"
+=======
+        <div className="bg-white shadow rounded-lg p-4 sm:p-6">
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <input
+              type="text"
+              name="name"
+              value={form.name}
+              onChange={handleChange}
+              placeholder="Product Name"
+              required
+              className="w-full border p-2 sm:p-3 rounded focus:ring-2 focus:ring-blue-500 text-sm sm:text-base"
+            />
+
+            <input
+              type="number"
+              name="price"
+              value={form.price}
+              onChange={handleChange}
+              placeholder="Price (₹)"
+              required
+              className="w-full border p-2 sm:p-3 rounded focus:ring-2 focus:ring-blue-500 text-sm sm:text-base"
+            />
+
+            <textarea
+              name="description"
+              value={form.description}
+              onChange={handleChange}
+              placeholder="Product Description"
+              rows="4"
+              className="w-full border p-2 sm:p-3 rounded focus:ring-2 focus:ring-blue-500 text-sm sm:text-base"
+            />
+
+            {/* File Upload */}
+            <label className="flex items-center gap-2 cursor-pointer border border-dashed p-2 sm:p-3 rounded-md hover:border-blue-500 text-sm sm:text-base">
+              <FaUpload className="text-gray-500" />
+              <span className="text-gray-600">Upload Product Image</span>
+              <input
+                type="file"
+                name="image"
+                accept="image/*"
+                onChange={handleChange}
+                className="hidden"
+              />
+            </label>
+
+            <button
+              type="submit"
+              className="w-full bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 font-semibold text-sm sm:text-base"
+>>>>>>> 6d66530 (second commit)
             >
               ➕ Add Product
             </button>
@@ -194,19 +256,31 @@ function AddProduct() {
         </div>
 
         {/* Product Preview */}
+<<<<<<< HEAD
         <div className="bg-white shadow-lg rounded-2xl p-6 border border-gray-100 flex flex-col items-center">
+=======
+        <div className="bg-white shadow rounded-lg p-4 sm:p-6 flex flex-col items-center">
+>>>>>>> 6d66530 (second commit)
           {preview ? (
             <img
               src={preview}
               alt="Product Preview"
+<<<<<<< HEAD
               className="w-48 h-48 object-cover rounded-xl border mb-4"
             />
           ) : (
             <div className="w-48 h-48 flex items-center justify-center border-2 border-dashed rounded-xl text-gray-400">
+=======
+              className="w-40 h-40 sm:w-48 sm:h-48 object-cover rounded-lg border mb-4"
+            />
+          ) : (
+            <div className="w-40 h-40 sm:w-48 sm:h-48 flex items-center justify-center border-2 border-dashed rounded-lg text-gray-400">
+>>>>>>> 6d66530 (second commit)
               No Image
             </div>
           )}
 
+<<<<<<< HEAD
           <div className="text-center space-y-2">
             <h3 className="text-lg font-bold text-gray-800">
               {form.name || "Product Name"}
@@ -219,6 +293,16 @@ function AddProduct() {
             </p>
             <p className="text-gray-600 text-sm">📦 {form.quantity || "Qty"}</p>
             <p className="text-gray-500 text-sm italic mt-2">
+=======
+          <div className="text-center">
+            <h3 className="text-base sm:text-lg font-bold text-gray-800">
+              {form.name || "Product Name"}
+            </h3>
+            <p className="text-yellow-600 text-sm sm:text-lg font-semibold mt-1">
+              {form.price ? `₹${form.price}` : "Price"}
+            </p>
+            <p className="text-gray-600 text-sm sm:text-base mt-2">
+>>>>>>> 6d66530 (second commit)
               {form.description || "Product description will appear here."}
             </p>
           </div>

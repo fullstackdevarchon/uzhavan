@@ -30,12 +30,11 @@ import MyProducts from "./pages/Seller/MyProducts"; // ✅ My Products Page
 
 // Admin Dashboard + Navbar
 import AdminNavbar from "./pages/Admin/AdminNavbar";
-import ProductListAdmin from "./pages/Admin/ProductList";
-import SellerRequests from "./pages/Admin/SellerRequests";
-import Analytics from "./pages/Admin/Analytics";
-import Inventory from "./pages/Admin/Inventory";
-import Orders from "./pages/Admin/Orders";
-import SelectedProducts from "./pages/Admin/SelectedProducts"; // ✅ New Import
+import ProductListAdmin from "./pages/Admin/ProductList"; // 📌 Product List for admin
+import SellerRequests from "./pages/Admin/SellerRequests"; // 📌 Seller product requests
+import Analytics from "./pages/Admin/Analytics"; // 📌 Highest selling & not selling
+import Inventory from "./pages/Admin/Inventory"; // 📌 Inventory & Stock Alerts
+import Orders from "./pages/Admin/Orders"; // 📌 Order Management
 
 // Utilities
 import ScrollToTop from "./components/ScrollToTop";
