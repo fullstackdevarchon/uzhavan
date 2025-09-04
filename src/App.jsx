@@ -26,11 +26,7 @@ import BuyerNavbar from "./pages/BUYER/Buyernavber";
 import SellerNavbar from "./pages/Seller/selernavbar";
 import AddProduct from "./pages/Seller/AddProduct";
 import CheckStatus from "./pages/Seller/CheckStatus";
-<<<<<<< HEAD
 import MyProducts from "./pages/Seller/MyProducts"; // ✅ My Products Page
-=======
-import MyProducts from "./pages/Seller/MyProducts";  // ✅ New Import
->>>>>>> fd4e5b9 (fourth commit)
 
 // Admin Dashboard + Navbar
 import AdminNavbar from "./pages/Admin/AdminNavbar";
@@ -39,6 +35,7 @@ import SellerRequests from "./pages/Admin/SellerRequests"; // 📌 Seller produc
 import Analytics from "./pages/Admin/Analytics"; // 📌 Highest selling & not selling
 import Inventory from "./pages/Admin/Inventory"; // 📌 Inventory & Stock Alerts
 import Orders from "./pages/Admin/Orders"; // 📌 Order Management
+import SelectedProducts from "./pages/Admin/SelectedProducts"; // ✅ Added missing import
 
 // Utilities
 import ScrollToTop from "./components/ScrollToTop";
@@ -76,11 +73,7 @@ function App() {
         <Route path="/seller-dashboard" element={<SellerNavbar />}>
           <Route index element={<AddProduct />} />
           <Route path="add-product" element={<AddProduct />} />
-<<<<<<< HEAD
           <Route path="my-products" element={<MyProducts />} />
-=======
-          <Route path="my-products" element={<MyProducts />} /> {/* ✅ Added */}
->>>>>>> fd4e5b9 (fourth commit)
           <Route path="check-status" element={<CheckStatus />} />
         </Route>
 
@@ -92,7 +85,7 @@ function App() {
           <Route path="analytics" element={<Analytics />} />
           <Route path="inventory" element={<Inventory />} />
           <Route path="orders" element={<Orders />} />
-          <Route path="selected-products" element={<SelectedProducts />} /> {/* ✅ Added */}
+          <Route path="selected-products" element={<SelectedProducts />} />
         </Route>
 
         {/* Error Handling */}
