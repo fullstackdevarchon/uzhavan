@@ -1,0 +1,3 @@
+PS C:\my-app - Copy> git add .
+>> git commit -m "your message"
+>> git push

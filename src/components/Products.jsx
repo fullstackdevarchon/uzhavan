@@ -120,18 +120,10 @@ const ProductList = () => {
             {/* Hover icons */}
             <div className="absolute top-2 right-2 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
               <Link
-<<<<<<< HEAD
-<<<<<<< HEAD
                 to={`/product/${product.id}`} // ✅ fixed link
-=======
-                to={`/buyer-dashboard/product/${product.id}`}  // ✅ fixed link
->>>>>>> 6d66530 (second commit)
-=======
-                to={`/product/${product.id}`} // ✅ fixed link
->>>>>>> fd4e5b9 (fourth commit)
-                className="p-2 bg-gray-800 text-white rounded-full hover:bg-gray-900 shadow-lg flex items-center justify-center"
+                className="px-4 py-2 text-center bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition"
               >
-                <FaCreditCard />
+                {/* Link content */}
               </Link>
               <button
                 onClick={() => addProduct(product)}

@@ -5,19 +5,12 @@ import { FaFacebookF, FaInstagram, FaYoutube, FaWhatsapp } from "react-icons/fa"
 import { FiShoppingCart, FiUserPlus, FiLogIn } from "react-icons/fi";
 
 const Footer = () => {
-  const navLinks = [
+  const footerLinks = [
     { name: "Home", to: "/" },
-    { name: "Products", to: "/product" },
     { name: "About", to: "/about" },
     { name: "Contact", to: "/contact" },
-<<<<<<< HEAD
     // { name: "Login", to: "/login", icon: <FiLogIn className="inline mr-1" /> },
-    // { name: "Register", to: "/register", icon: <FiUserPlus className="inline mr-1" /> },
-=======
-    { name: "Login", to: "/login", icon: <FiLogIn className="inline mr-1" /> },
-    { name: "Register", to: "/register", icon: <FiUserPlus className="inline mr-1" /> },
->>>>>>> fd4e5b9 (fourth commit)
-    { name: "Cart", to: "/cart", icon: <FiShoppingCart className="inline mr-1" /> },
+    // { name: "Register", to: "/register", icon: <FiUserPlus className="inline mr-1" /> }
   ];
 
   return (
@@ -31,7 +24,7 @@ const Footer = () => {
 
         {/* Nav Links */}
         <div className="flex justify-center gap-6 mt-4 flex-wrap text-lg font-semibold">
-          {navLinks.map((link) => (
+          {footerLinks.map((link) => (
             <NavLink
               key={link.name}
               to={link.to}

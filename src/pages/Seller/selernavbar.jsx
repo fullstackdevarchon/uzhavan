@@ -1,16 +1,6 @@
 // src/components/SellerNavbar.jsx
-<<<<<<< HEAD
-<<<<<<< HEAD
 import React from "react";
 import { NavLink, Outlet, Link, useNavigate } from "react-router-dom";
-=======
-import React, { useState } from "react";
-import { NavLink, Outlet, useNavigate } from "react-router-dom";
->>>>>>> 6d66530 (second commit)
-=======
-import React from "react";
-import { NavLink, Outlet, Link, useNavigate } from "react-router-dom";
->>>>>>> fd4e5b9 (fourth commit)
 import {
   FaPlusCircle,
   FaClipboardCheck,
@@ -36,8 +26,6 @@ const SellerNavbar = () => {
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
       {/* Navbar */}
-<<<<<<< HEAD
-<<<<<<< HEAD
       <nav className="bg-orange-600 shadow-2xl fixed top-0 w-full z-50">
         <div className="max-w-7xl mx-auto px-4 py-3 flex flex-col md:flex-row items-center justify-between">
           {/* Left: Logo + Title clickable */}
@@ -45,21 +33,6 @@ const SellerNavbar = () => {
             to="/seller-dashboard"
             className="flex items-center gap-3 w-full md:w-auto mb-3 md:mb-0 justify-center md:justify-start"
           >
-=======
-      <nav className="bg-gradient-to-r from-purple-800 via-pink-600 to-cyan-500 shadow-2xl fixed top-0 w-full z-50">
-        <div className="max-w-7xl mx-auto px-4 py-3 flex flex-col md:flex-row items-center justify-between">
-          {/* Left: Logo + Typewriter */}
-          <div className="flex items-center gap-3 w-full md:w-auto mb-3 md:mb-0 justify-center md:justify-start">
->>>>>>> 6d66530 (second commit)
-=======
-      <nav className="bg-orange-600 shadow-2xl fixed top-0 w-full z-50">
-        <div className="max-w-7xl mx-auto px-4 py-3 flex flex-col md:flex-row items-center justify-between">
-          {/* Left: Logo + Title clickable */}
-          <Link
-            to="/seller-dashboard"
-            className="flex items-center gap-3 w-full md:w-auto mb-3 md:mb-0 justify-center md:justify-start"
-          >
->>>>>>> fd4e5b9 (fourth commit)
             <img
               src="/assets/logo.png"
               alt="Logo"
@@ -101,8 +74,6 @@ const SellerNavbar = () => {
             </button>
           </div>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
           {/* Mobile Nav (horizontal buttons) */}
           <div className="flex md:hidden justify-around w-full mt-3 border-t border-white/20 pt-2">
             <NavLink
@@ -123,49 +94,12 @@ const SellerNavbar = () => {
               to="/seller-dashboard/check-status"
               className={navLinkClass}
             >
-=======
-          {/* Mobile Nav (top horizontal buttons) */}
-=======
-          {/* Mobile Nav (horizontal buttons) */}
->>>>>>> fd4e5b9 (fourth commit)
-          <div className="flex md:hidden justify-around w-full mt-3 border-t border-white/20 pt-2">
-            <NavLink
-              to="/seller-dashboard/add-product"
-              className={navLinkClass}
-            >
-              <FaPlusCircle className="inline mr-1" /> Add
-            </NavLink>
-
-<<<<<<< HEAD
-            <NavLink to="/seller-dashboard/check-status" className={navLinkClass}>
->>>>>>> 6d66530 (second commit)
-=======
-            <NavLink
-              to="/seller-dashboard/my-products"
-              className={navLinkClass}
-            >
-              <FaBoxOpen className="inline mr-1" /> My
-            </NavLink>
-
-            <NavLink
-              to="/seller-dashboard/check-status"
-              className={navLinkClass}
-            >
->>>>>>> fd4e5b9 (fourth commit)
               <FaClipboardCheck className="inline mr-1" /> Status
             </NavLink>
 
             <button
               onClick={handleLogout}
-<<<<<<< HEAD
-<<<<<<< HEAD
               className="flex items-center gap-1 text-red-200 hover:text-red-100 font-semibold border-b-2 border-transparent hover:border-red-300 transition"
-=======
-              className="flex items-center gap-1 text-red-300 hover:text-red-100 font-semibold border-b-2 border-transparent hover:border-red-300 transition"
->>>>>>> 6d66530 (second commit)
-=======
-              className="flex items-center gap-1 text-red-200 hover:text-red-100 font-semibold border-b-2 border-transparent hover:border-red-300 transition"
->>>>>>> fd4e5b9 (fourth commit)
             >
               <FaSignOutAlt /> Logout
             </button>
