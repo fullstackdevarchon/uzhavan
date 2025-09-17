@@ -119,12 +119,14 @@ const ProductList = () => {
           >
             {/* Hover icons */}
             <div className="absolute top-2 right-2 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+              {/* ✅ Buy Now button with only icon */}
               <Link
-                to={`/product/${product.id}`} // ✅ fixed link
-                className="px-4 py-2 text-center bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition"
+                to={`/product/${product.id}`}
+                className="p-2 bg-green-600 text-white rounded-full shadow-md hover:bg-green-700 transition flex items-center justify-center"
               >
-                {/* Link content */}
+                <FaCreditCard />
               </Link>
+              {/* Add to Cart button */}
               <button
                 onClick={() => addProduct(product)}
                 className="p-2 bg-white border border-gray-800 text-gray-800 rounded-full hover:bg-gray-800 hover:text-white shadow-lg flex items-center justify-center"
@@ -133,7 +135,7 @@ const ProductList = () => {
               </button>
             </div>
 
-            {/* Product image - ✅ square equal size */}
+            {/* Product image */}
             <div className="flex justify-center items-center bg-gray-50 h-64 p-4">
               <div className="w-48 h-48 flex items-center justify-center overflow-hidden rounded-md">
                 <img
@@ -156,7 +158,6 @@ const ProductList = () => {
                 </p>
               </div>
               <div className="mt-auto flex justify-between items-center">
-                {/* ✅ Price and weight together */}
                 <p className="text-lg font-bold">
                   ₹ {product.price}{" "}
                   <span className="text-sm font-medium text-gray-500">
